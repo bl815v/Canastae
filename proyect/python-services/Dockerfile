@@ -16,5 +16,5 @@ CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
 # docker run -d -p 8000:8000 --name canastae-python canastae-python:1.0.0
 
 # all:
-# docker build -t canastae-python:1.0.0 . && docker rm -f canastae-python && docker run -d -p 8000:8000 --name canastae-python canastae-python:1.0.0
+# sudo docker build -t canastae-python:1.0.0 . && sudo docker rm -f canastae-python && sudo docker run -d -p 8000:8000 --name canastae-python canastae-python:1.0.0
  
