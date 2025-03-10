@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "canastae"
+version = "0.1.0"
+description = "webapp for canastae"
+authors = ["Esteban Bedoya <jebedoyal@udistrital.edu.co>"]
+license = "GNU GPL-3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.11"
+uvicorn = "^0.34.0"
+python-dotenv = "^1.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.3.5"
+pre-commit = "^4.1.0"
+pytest = "^8.3.5"
+black = "^25.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
