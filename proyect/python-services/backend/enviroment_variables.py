@@ -1,5 +1,5 @@
-"""This module is used to handle API endpoints related to
-CanastaeSchedule.
+"""This module is responsible for loading enviroment variables
+for the CanastaeSchedule project.
 
 Author: Juan Esteban Bedoya <jebedoyal@udistrital.edu.co>
 
@@ -19,5 +19,24 @@ You should have received a copy of the GNU General Public License
 along with CanastaeSchedule. If not, see <https://www.gnu.org/licenses/>. 
 """
 
-from .user import router as user_router #pylint: disable=import-error #pylint: disable=no-name-in-module
-from .index import router as index_router #pylint: disable=import-error #pylint: disable=no-name-in-module
+import os
+from dotenv import load_dotenv
+
+DOTENV_PATH = "/app/backend/.env"
+load_dotenv(DOTENV_PATH)
+
+#pylint: disable=too-few-public-methods
+
+class EnviromentVariables:
+    """
+    Manages environment variables for data file paths.
+    """
+
+    def __init__(self):
+        """Initializes environment variables for data storage paths.
+
+        Attributes:
+            path_users_data (str | None): Path to the routes data file.
+        """
+
+        self.path_users_data = os.getenv("PATH_USERS_DATA")

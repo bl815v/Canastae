@@ -1,18 +1,33 @@
+"""This module is used to handle the different routers of the app.
 
-from pathlib import Path
+Author: Juan Esteban Bedoya <jebedoyal@udistrital.edu.co>
+
+This file is part of CanastaeSchedule project.
+
+CanastaeSchedule is free software: you can redistribute it and/or 
+modify it under the terms of the GNU General Public License as 
+published by the Free Software Foundation, either version 3 of 
+the License, or (at your option) any later version.
+
+CanastaeSchedule is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License 
+along with CanastaeSchedule. If not, see <https://www.gnu.org/licenses/>. 
+"""
+
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from .controllers import user_router, index_router #pylint: disable=import-error
 
-BASE_DIR = Path(__file__).resolve().parent
-FRONTEND_DIR = BASE_DIR.parent / "frontend"
+app = FastAPI(
+    title="CanastaeSchedule",
+    version="0.1.0"
+)
 
-app = FastAPI()
+app.mount("/static", StaticFiles(directory="/app/frontend/assets"), name="static")
 
-app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR / "assets")), name="static")
-
-@app.get("/")
-async def serve_index():
-
-    index_path = FRONTEND_DIR / "index.html"
-    return FileResponse(index_path)
+app.include_router(user_router)
+app.include_router(index_router)
