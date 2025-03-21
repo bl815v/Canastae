@@ -20,7 +20,7 @@ along with CanastaeSchedule. If not, see <https://www.gnu.org/licenses/>.
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from .controllers import user_router, index_router #pylint: disable=import-error
+from .controllers import index_router, user_router, user_auth_router  #pylint: disable=import-error
 
 app = FastAPI(
     title="CanastaeSchedule",
@@ -29,5 +29,6 @@ app = FastAPI(
 
 app.mount("/static", StaticFiles(directory="/app/frontend/assets"), name="static")
 
-app.include_router(user_router)
 app.include_router(index_router)
+app.include_router(user_router)
+app.include_router(user_auth_router)
