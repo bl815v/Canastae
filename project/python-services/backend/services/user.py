@@ -19,7 +19,7 @@ along with CanastaeSchedule. If not, see <https://www.gnu.org/licenses/>.
 """
 
 from typing import List
-from backend.repositories.users.user import UserRepository, UserDAO #pylint: disable=import-error
+from backend.repositories.users.user import UserRepository, UserDAO
 
 class UserServices:
     """Provides services for searching user data."""

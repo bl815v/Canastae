@@ -21,8 +21,8 @@ along with CanastaeSchedule. If not, see <https://www.gnu.org/licenses/>.
 
 from typing import List
 from fastapi import APIRouter, HTTPException
-from backend.services.user import UserServices #pylint: disable=import-error
-from backend.repositories.users.user import UserDAO #pylint: disable=import-error
+from backend.services.user import UserServices
+from backend.repositories.users.user import UserDAO
 
 router = APIRouter()
 

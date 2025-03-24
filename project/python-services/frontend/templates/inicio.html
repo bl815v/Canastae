@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio</title>
+</head>
+<body>
+    <h1>Bienvenido {{ username }}!</h1>
+    <button onclick="logout()">Cerrar sesión</button>
+
+    <script>
+        function logout() {
+            fetch("/logout")
+                .then(() => window.location.href = "/login");
+        }
+    </script>
+</body>
+</html>

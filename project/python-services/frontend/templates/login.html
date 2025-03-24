@@ -20,5 +20,26 @@
         </form>
         <a href="/forgot-password" class="forgot-password">Forgot your password?</a>
     </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const formData = new URLSearchParams();
+            formData.append("username", username);
+            formData.append("password", password);
+
+            fetch("/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData
+            });
+
+            if (response.ok) {
+                window.location.href = "/inicio";
+            }
+        });
+    </script>
 </body>
 </html>

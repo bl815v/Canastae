@@ -1,5 +1,4 @@
-"""This module is responsible for loading enviroment variables
-for the CanastaeSchedule project.
+"""This module handles the loading of environment variables for the application.
 
 Author: Juan Esteban Bedoya <jebedoyal@udistrital.edu.co>
 
@@ -16,7 +15,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 General Public License for more details.
 
 You should have received a copy of the GNU General Public License 
-along with CanastaeSchedule. If not, see <https://www.gnu.org/licenses/>. 
+along with CanastaeSchedule. If not, see <https://www.gnu.org/licenses/>.
 """
 
 import os
@@ -25,18 +24,14 @@ from dotenv import load_dotenv
 DOTENV_PATH = "/app/backend/.env"
 load_dotenv(DOTENV_PATH)
 
-#pylint: disable=too-few-public-methods
+# pylint: disable=too-few-public-methods
 
 class EnviromentVariables:
-    """
-    Manages environment variables for data file paths.
-    """
+    """Class for loading and storing environment variables."""
 
     def __init__(self):
-        """Initializes environment variables for data storage paths.
-
-        Attributes:
-            path_users_data (str | None): Path to the routes data file.
-        """
-
+        """Initializes environment variables from the .env file."""
         self.path_users_data = os.getenv("PATH_USERS_DATA")
+        self.jwt_secret_key = os.getenv("JWT_SECRET_KEY")
+        self.jwt_algorithm = os.getenv("JWT_ALGORITHM")
+        self.expire_minutes = os.getenv("JWT_EXPIRE_MINUTES")

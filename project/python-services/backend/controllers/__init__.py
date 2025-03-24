@@ -19,6 +19,6 @@ You should have received a copy of the GNU General Public License
 along with CanastaeSchedule. If not, see <https://www.gnu.org/licenses/>. 
 """
 
-from .user import router as user_router #pylint: disable=import-error #pylint: disable=no-name-in-module
-from .index import router as index_router #pylint: disable=import-error #pylint: disable=no-name-in-module
-from .user_auth import router as user_auth_router #pylint: disable=import-error #pylint: disable=no-name-in-module
+from .user import router as user_router
+from .index import router as index_router
+from .user_auth import router as user_auth_router
