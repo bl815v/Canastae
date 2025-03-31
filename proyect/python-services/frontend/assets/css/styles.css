@@ -1,43 +1,100 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+body {
+  background: url('/static/images/canastae.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  color: white;
+  text-shadow: 
+    0 0 10px rgba(74, 0, 211, 0.9),
+    0 0 25px rgba(120, 40, 200, 0.6);
+  padding: 5vw;
+  border-radius: 15px;
+  text-align: center;
+  width: 100%;
+  max-width: none;
+  transform: scale(1.2);
+}
+
+.countdown {
+  display: flex;
+  justify-content: space-around;
+  margin: 5vh 0;
+  width: 100%;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 auto;
+  margin: 0 2vw;
+}
+
+.time-value {
+  font-size: 10vw;
+  font-weight: 800;
+  line-height: 0.8;
+  min-width: 1.2em;
+  text-align: center;
+}
+
+.time-label {
+  font-size: 2vw;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-top: 1vh;
+  white-space: nowrap; 
+}
+
+@media (max-width: 768px) {
+  .countdown {
+    justify-content: center;
+    gap: 10vw;
   }
   
-  html, body {
-    height: 100%;
-    width: 100%;
-    font-family: Arial, sans-serif;
+  .time-unit {
+    margin: 0 4vw;
   }
-  
+}
+
+@media (max-width: 768px) {
   body {
-    background: url('/static/images/canastae.jpg') no-repeat center center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 5%;
+    background: linear-gradient(45deg, rgb(69, 10, 179), rgb(0,0,0));
+    justify-content: center;
+    padding-left: 0;
+    text-align: center;
   }
-  
   .content {
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0.470);
-    padding: 5%;
-    border-radius: 10px;
-    max-width: 40%;
+    transform: scale(1);
+    padding: 10vw;
   }
   
-  @media (max-width: 768px) {
-    body {
-      background: linear-gradient(45deg, rgb(69, 10, 179), rgb(0,0,0));
-      justify-content: center;
-      padding-left: 0;
-      text-align: center;
-    }
-    .content {
-      max-width: 80%;
-    }
+  .time-value {
+    font-size: 15vw;
   }
   
+  .time-label {
+    font-size: 4vw;
+    letter-spacing: 2px;
+  }
+  
+  .countdown {
+    gap: 8vw;
+  }
+}

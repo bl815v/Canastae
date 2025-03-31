@@ -5,12 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canastae</title>
     <link rel="stylesheet" href="/static/css/styles.css">
-    </head>
+</head>
 <body>
     <div class="content">
-        <h1>Hola!</h1>
-        <p><br><br>Nuevo proyecto próximamente...</p>
-        <p><br><br>Canastae 2025</p>
-      </div>
+        <div class="countdown" id="countdown">
+            <div class="time-unit" id="days-unit">
+                <div class="time-value" id="days">0</div>
+                <div class="time-label">Días</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="hours">0</div>
+                <div class="time-label">Horas</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="minutes">0</div>
+                <div class="time-label">Minutos</div>
+            </div>
+            <div class="time-unit" id="seconds-unit" style="display: none;">
+                <div class="time-value" id="seconds">0</div>
+                <div class="time-label">Segundos</div>
+            </div>
+        </div>
+        
+        <p><br><br>Cumpleaños Canastae 2025</p>
+    </div>
+
+    <script>
+        const targetDate = new Date('Apr 02, 2025 00:00:00').getTime();
+        const daysUnit = document.getElementById('days-unit');
+        const secondsUnit = document.getElementById('seconds-unit');
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = "<div class='time-value'>¡Feliz cumpleaños, Canastae! 🎉✨</div>";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            if (days > 0) {
+                daysUnit.style.display = 'flex';
+                secondsUnit.style.display = 'none';
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+            } else {
+                daysUnit.style.display = 'none';
+                secondsUnit.style.display = 'flex';
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
